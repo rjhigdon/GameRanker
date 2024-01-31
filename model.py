@@ -14,8 +14,12 @@ class Game(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     title = db.Column(db.String(50), nullable = False)
     genre = db.Column(db.String(50), nullable = False)
-    vgConsole = db.Column(db.String(50), nullable = False)
-    
+    vgConsole = db.Column(db.String(50), nullable = True)
+    releaseYr = db.Column(db.Integer, nullable = True)
+    playYr = db.Column(db.Integer, nullable = True)
+    description = db.Column(db.String(250), nullable = True) 
+    rating = db.Column(db.Integer, nullable = False)   
 
 class Rating(db.Model):
-    pass
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    rating = db.Column(db.Integer, nullable = False)   
