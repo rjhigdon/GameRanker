@@ -41,7 +41,7 @@ class Game(db.Model):
         self.release_yr = release_yr
         self.play_yr = play_yr
         self.description = description
-        self.rating = rati
+        self.rating = rating
 
 class Rating(db.Model):
     
