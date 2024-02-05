@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"/>
+    <title>{% block title %} Game Ranker {% endblock %}</title>
+    {% endblock %}
+</head>
+
+<header id="header">
+    {% block header %}
+    <h2>Games List</h2>
+    
+    <nav id="hyper-links">
+        <a href="./index.html" class="nav-link"> <img src="../Resources/stack.png" alt="stack" id="stack-img">List Games</a>
+        
+        <a href="./searchGame.html" class="nav-link"> <img src="../Resources/magnifying-glass.png" alt="magnifying glass" id="magnifying-glass">Search Games</a>
+        
+        <a href="./addGame.html" class="nav-link"><img src="../Resources/plus-sign.png" alt="plus-sign" id="plus-sign">Add Game</a>
+    </nav>  
+    {% endblock %}
+</header>
+
+<body>
+    {% block body %}
+    <h1 id="all-games"> </h1>
+    
+    <div class="games-container" id="games-container">
+        
+    </div>
+    {% end block %}
+</body>
+</html>
