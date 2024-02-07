@@ -10,9 +10,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     username = db.Column(db.String(25), unique = True, nullable = False)
     password = db.Column(db.String(25), nullable = False)
-    email = db.Column(db.String(70), nullable = False)
-    logged_in = db.Column(db.Boolean, nullable = False)
-    rating = db.Column(db.Integer, nullable = True)   
+    
+    game = db.relationship("Game", backref = "user", lazy = True)
     
     def __init__(self, username, password, email, logged_in, rating):
         self.username = username
@@ -20,6 +19,9 @@ class User(db.Model):
         self.email = email
         self.logged_in = logged_in
         self.rating = rating
+
+    def __repr__(self):
+        return f"<user: {self.username} has an email: {self.email} and a "
 
 class Game(db.Model):
     
@@ -33,6 +35,7 @@ class Game(db.Model):
     play_yr = db.Column(db.Integer, nullable = True)
     description = db.Column(db.String(250), nullable = True) 
     rating = db.Column(db.Integer, nullable = False) 
+    player = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     
     def __init__(self, title, genre, vg_console, release_yr, play_yr, description, rating):
         self.title = title
@@ -41,16 +44,6 @@ class Game(db.Model):
         self.release_yr = release_yr
         self.play_yr = play_yr
         self.description = description
-        self.rating = rating
-
-class Rating(db.Model):
-    
-    __tablename__ = "ratings"
-    
-    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
-    rating = db.Column(db.Integer, nullable = False)
-    
-    def __init__(self, rating):
         self.rating = rating
 
 def connect_to_db(app):

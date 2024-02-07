@@ -16,5 +16,3 @@ def homepage():
 @app.route("/login")
 def login():
     pass
-
-@app.route()
