@@ -1,23 +1,22 @@
-from flask import Flask
-from jinja2 import Environment, PackageLoader, select_autoescape, render_template
+from flask import Flask, render_template, flash
+from jinja2 import Environment, PackageLoader, StrictUndefined
 
 app = Flask(__name__)
 app.secret_key = "SuperDuperSecretKey"
+app.jinja_env.undefined = StrictUndefined()
 
-env = Environment(
-    loader=PackageLoader("yourapp"),
-    autoescape=select_autoescape()
-)
 
 @app.route("/")
-def homepage():
-    pass
+def home():
+    return render_template("home.html")
 
 @app.route("/login")
 def login():
-    return render_template("login.html")
+    return "GameRanker login"
 
 @app.route("/register")
 def register():
-    pass
+    return render_template("register.html")
 
+if __name__ == "__main__":
+    app.run(debug = True)
