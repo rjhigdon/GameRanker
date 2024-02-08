@@ -13,7 +13,13 @@
 </head>
 
 <header id="header">
-    {% block header %}{% endblock %}
+{% block header %}
+    {% for msg in get_flashed_messages() %}
+    <p class="flask-msg">
+    {{ msg }}
+    </p>
+    {% endfor %}
+{% endblock %}
 </header>
 
 <body>    
