@@ -3,30 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css"/>
-
-    <title>
-        {% block title %} {% endblock %}
-    </title>
-
-    {% block head %}{% endblock %}
+    <link rel="stylesheet" href="../static/index.css"/>
     
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    
+    {% block head %}{% endblock %}
 </head>
 
 <header id="header">
     {% block header %}{% endblock %}
 </header>
 
-<body>
-    <!-- {% for msg in get_flased_messages() %}
-    <p class="flask-msg">
-        {{ msg }}
-    </p>
-    {% end for %} -->
-    
-    {% block body %} {% end block %}
-    {% block content %} {% end block %}
-    {% block after_body %} {% end block %}
+<body>    
+    {% block body %} {% endblock %}
+    {% block content %} {% endblock %}
+    {% block after_body %} {% endblock %}
     
 </body>
 </html>
