@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block header %}
+    <header id="header">
+        <h2>Games List</h2>
+    </header>
+{% endblock %}
+{% block body %}
+    <form id="login-form" action="/user" method="POST">
+        <h1>Log In</h1>
+        <p>
+            {{ form.csrf_token }}
+            
+            {{ form.username.label }} <br>
+            {{ form.username }}
+
+            {{ form.password.label }}
+            {{ form.password }}
+
+        </p>
+    </form>
+    <a href="{{ url_for('register') }}">Don't have an account? Sign up here</a>
+{% endblock %}

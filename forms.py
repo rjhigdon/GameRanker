@@ -1,4 +1,5 @@
-from wtforms import Form, SelectField, StringField, IntegerField, RadioField, validators
+from flask_wtf import FlaskForm
+from wtforms import SelectField, StringField, IntegerField, Form, RadioField, ValidationError, validators
 
 
 class LoginForm():
