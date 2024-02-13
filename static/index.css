@@ -15,7 +15,7 @@ header{
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.hyper-links{
+.hyper-link{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -89,6 +89,19 @@ body::before {
     gap: 30px;
 }
 #login-form{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    background-color: #44b6db;
+    color: #8d63df;
+    -webkit-text-stroke: 0.6px #000233;
+    border-radius: 8%;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    box-shadow: 0 0 4px #00c4ff, 0 0 4px #00c4ff, 0 0 4px #00c4ff;
+    transition: box-shadow 0.7s; 
+}
+#register-form{
     width: 400px;
     height: 400px;
     position: relative;

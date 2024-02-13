@@ -22,7 +22,7 @@ def register():
     form = RegisterForm()
     return render_template("register.html", form=form)
 
-@app.route("/user")
+@app.route("/user") 
 def user():
     pass
 

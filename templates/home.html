@@ -2,6 +2,9 @@
 {% block header %}
     <header id="header">
         <h2>Games List</h2>
+        <a class="nav-link" href="{{ url_for('register') }}">
+            <img src="../static/RegisterImage.jpg"> Register
+        </a>
     </header>
 {% endblock %}
 {% block body %}
@@ -9,10 +12,11 @@
         <h1>Log In</h1>
         <p>
             {{ form.csrf_token }}
-            {{ form.username.label }} <br> {{ form.username(size=30, autocomplete="off") }}
+            {{ form.username.label }}  
+            {{ form.username(size=30, autocomplete="off") }}<br>
         </p>
         <p>
-            {{ form.password.label }} <br> 
+            {{ form.password.label }} 
             {{ form.password(size=30, autocomplete="off") }} <br>
         </p>
         <p>
