@@ -22,5 +22,9 @@ def register():
     form = RegisterForm()
     return render_template("register.html", form=form)
 
+@app.route("/user")
+def user():
+    pass
+
 if __name__ == "__main__":
     app.run(debug = True)

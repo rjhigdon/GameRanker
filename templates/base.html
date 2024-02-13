@@ -11,7 +11,7 @@
     
     {% block head %}{% endblock %}
 </head>
-
+<body>
 <header id="header">
 {% block header %}
     {% for msg in get_flashed_messages() %}
@@ -22,7 +22,6 @@
 {% endblock %}
 </header>
 
-<body>    
     {% block body %} {% endblock %}
     {% block content %} {% endblock %}
     {% block after_body %} {% endblock %}

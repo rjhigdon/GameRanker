@@ -1,21 +1,24 @@
 from flask_wtf import FlaskForm
-from wtforms import SelectField, StringField, IntegerField, Form, RadioField, ValidationError, validators
+from wtforms import SelectField, StringField, IntegerField, Form, RadioField, ValidationError, SubmitField, validators
 
 
-class LoginForm():
-    username = StringField('username', validators.Length(min=5, max=25))
-    password = StringField('password', validators.Length(min=5, max=25))
+class LoginForm(FlaskForm):
+    username = StringField('username', validators=[validators.Length(min=5, max=25)])
+    password = StringField('password', validators=[validators.Length(min=5, max=25)])
+    submit = SubmitField("Submit")
     
     
-class RegisterForm():
-    username = StringField('username', validators.Length(min=5, max=25))
-    password = StringField('password', validators.Length(min=5, max=25))
+class RegisterForm(FlaskForm):
+    username = StringField('username', validators=[validators.Length(min=5, max=25)])
+    password = StringField('password', validators=[validators.Length(min=5, max=25)])
+    submit = SubmitField("Submit")
     
-class AddGame():
-    title = StringField('title', validators.Length(max=75))
-    genre = StringField('title',validators.Length(max=250))
+class AddGame(FlaskForm):
+    title = StringField('title',validators=[validators.Length(max=75)])
+    genre = StringField('title',validators=[validators.Length(max=250)])
     vg_console = SelectField('genre')
     release_yr = IntegerField('Year Released')
     play_yr =IntegerField ('Year Played')
-    description = StringField('Description', validators.Length(max=250))
-    rating = IntegerField('Rating', validators.NumberRange(min=0, max=10))
+    description = StringField('Description', validators=[validators.Length(max=250)])
+    rating = IntegerField('Rating', validators=[validators.NumberRange(min=0, max=10)])
+    submit = SubmitField("Submit")

@@ -5,7 +5,7 @@
     </header>
 {% endblock %}
 {% block body %}
-    <form id="login-form" action="/user" method="POST">
+    <form id="register-form" action="/user" method="POST">
         <h1>Log In</h1>
         <p>
             {{ form.csrf_token }}
@@ -16,7 +16,7 @@
             {{ form.password.label }}
             {{ form.password }}
 
+            {{ form.submit }}
         </p>
     </form>
-    <a href="{{ url_for('register') }}">Don't have an account? Sign up here</a>
 {% endblock %}
