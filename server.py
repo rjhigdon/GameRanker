@@ -8,8 +8,11 @@ app = Flask(__name__)
 app.secret_key = "SuperDuperSecretKey"
 app.jinja_env.undefined = StrictUndefined
 
-login_manager = LoginManager
-login_manager.init_app(app)
+login_manager = LoginManager()
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -42,3 +45,4 @@ def user():
 
 if __name__ == "__main__":
     app.run(debug = True)
+    login_manager.init_app(app)

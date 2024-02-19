@@ -13,15 +13,12 @@ class User(db.Model):
     
     game = db.relationship("Game", backref = "user", lazy = True)
     
-    def __init__(self, username, password, email, logged_in, rating):
+    def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.email = email
-        self.logged_in = logged_in
-        self.rating = rating
 
     def __repr__(self):
-        return f"<user: {self.username} has an email: {self.email} and a "
+        return f"<user: {self.username}"
 
 class Game(db.Model):
     
@@ -35,12 +32,12 @@ class Game(db.Model):
     play_yr = db.Column(db.Integer, nullable = True)
     description = db.Column(db.String(250), nullable = True) 
     rating = db.Column(db.Integer, nullable = False) 
-    player = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     
     def __init__(self, title, genre, vg_console, release_yr, play_yr, description, rating):
         self.title = title
         self.genre = genre
-        self. vg_console = vg_console
+        self.vg_console = vg_console
         self.release_yr = release_yr
         self.play_yr = play_yr
         self.description = description
@@ -63,5 +60,4 @@ if __name__ == "__main__":
     
     with app.app_context():
         db.create_all()
-        print("created Tables")
-    
+        
