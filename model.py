@@ -61,7 +61,7 @@ if __name__ == "__main__":
     connect_to_db(app)
     print("Connected to db...")
     
-with app.app_context():
+    with app.app_context():
         db.create_all()
         print("created Tables")
     
