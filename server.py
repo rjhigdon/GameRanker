@@ -33,9 +33,11 @@ def login():
 def register():
     form = RegisterForm()
     new_user = User(username = form.username.data, password = form.password.data)
-    db.session.add(new_user)
-    db.session.commit()
-    flash(f"new user {new_user.username} created successfully")
+    if form.validate_on_submit():
+        db.session.add(new_user)
+        db.session.commit()
+        flash(f"new user {new_user.username} created successfully")
+        return redirect("login.html")
     return render_template("register.html", form=form)
 
 @app.route("/user") 
